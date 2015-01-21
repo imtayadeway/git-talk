@@ -231,6 +231,7 @@ https://github.com/torvalds/linux/pull/17#issuecomment-5663780
     - git blame path/to/file
 *** cherry-pick
     - git cherry-pick <hash>
+*** ranges
 ** References
 
    1. Linus Torvalds tech talk
