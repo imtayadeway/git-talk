@@ -211,14 +211,14 @@ https://github.com/torvalds/linux/pull/17#issuecomment-5663780
 ** Some useful commands
 *** bisect
     - git bisect start
-    - git bisect good {ref}
-    - git bisect bad {ref}
+    - git bisect good <hash>
+    - git bisect bad <hash>
     - git bisect good
     - git bisect bad
     - git bisect run rspec spec/features/my_broken_spec.rb
 *** revert
-    - git revert {ref}
-    - git revert -m 1 {mergesha}
+    - git revert <hash>
+    - git revert -m 1 <merge hash>
 *** add
     - git add -p/--patch
 *** push
