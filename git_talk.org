@@ -223,6 +223,8 @@ https://github.com/torvalds/linux/pull/17#issuecomment-5663780
     - git add -p/--patch
 *** push
     - git push origin :<branch name>
+*** blame
+    - git blame path/to/file
 ** References
 
    1. Linus Torvalds tech talk
