@@ -221,6 +221,8 @@ https://github.com/torvalds/linux/pull/17#issuecomment-5663780
     - git revert -m 1 {mergesha}
 *** add
     - git add -p/--patch
+*** push
+    - git push origin :<branch name>
 ** References
 
    1. Linus Torvalds tech talk
