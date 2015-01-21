@@ -220,6 +220,9 @@ https://github.com/torvalds/linux/pull/17#issuecomment-5663780
 *** revert
     - git revert <hash>
     - git revert -m 1 <merge hash>
+*** reset
+    - git reset --hard
+    - git reset --hard
 *** add
     - git add -p/--patch
 *** push
