@@ -219,6 +219,8 @@ https://github.com/torvalds/linux/pull/17#issuecomment-5663780
 *** revert
     - git revert {ref}
     - git revert -m 1 {mergesha}
+*** add
+    - git add -p/--patch
 ** References
 
    1. Linus Torvalds tech talk
