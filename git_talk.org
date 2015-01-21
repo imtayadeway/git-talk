@@ -225,6 +225,8 @@ https://github.com/torvalds/linux/pull/17#issuecomment-5663780
     - git push origin :<branch name>
 *** blame
     - git blame path/to/file
+*** cherry-pick
+    - git cherry-pick <hash>
 ** References
 
    1. Linus Torvalds tech talk
