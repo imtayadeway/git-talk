@@ -8,6 +8,7 @@
    | private branch                  | a branch that is used by just you                    | tw/DSP-23-feature          |
    | public branch                   | a branch that is shared by many                      | master                     |
    | rebase [x onto (the head of) y] | point the base of branch x onto the head of branch y | rebase feature onto master |
+   | staging area                    | things added to the index, but not committed         |                            |
 
 
 ** Why care about your git history?
