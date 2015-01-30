@@ -18,6 +18,7 @@
    - All tests should pass on every commit
    - All commits should be deployable
    - Taking pride in your work
+   - Better programmer - work in small steps, don't do more work than necessary
 
 ** Writing a good commit message
    - Don't ever use git commit -m
