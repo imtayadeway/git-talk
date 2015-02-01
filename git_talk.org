@@ -1,7 +1,7 @@
 * Git
 ** Disclaimer
 
-I am not a git expert. I just really like it.
+I am not a git expert. I just really like it. I hope you like it too.
 
 ** Glossary
 
@@ -11,6 +11,7 @@ I am not a git expert. I just really like it.
 | public branch  | a branch that is shared by many     | master              |
 | staging area   | the index                           |                     |
 | fast-forward   | merge without creating a new commit |                     |
+| HEAD           | current revision of a given branch  |                     |
 
 ** Why care about your git history?
 
@@ -71,6 +72,7 @@ a-b-c
 a-b-c-f-g
      \-d-e
 
+# with no fast-forward:
 a-b-c-f-g---h
      \-d-e-/
 
@@ -90,9 +92,7 @@ a-b-c-f
 a-b-c-f
        \-d-e
 
-
-and with a fast-forwarded merge:
-
+# and with a fast-forwarded merge:
 a-b-c-f-d-e
 
 **** Why?
@@ -205,19 +205,24 @@ Take a meat cleaver to your history:
 
 ** Aliasing
 
-| alias  | =                                                                                                     |
-|--------+-------------------------------------------------------------------------------------------------------|
-| g      | git                                                                                                   |
-| g a    | git add                                                                                               |
-| g aa   | git add -u && git add . && git status                                                                 |
-| g s    | git status                                                                                            |
-| g co   | git checkout                                                                                          |
-| g ci   | git commit                                                                                            |
-| g wip  | git add -A && git commit -m "wip"                                                                     |
-| g up   | git fetch origin && git rebase origin/master                                                          |
-| g ir   | git rebase -i origin/master                                                                           |
-| g done | git fetch && git rebase origin/master && git checkout master && git merge @{-1} --ff-only && git push |
-| g rmb  | git branch -d $1 && git push --delete origin $1                                                       |
+| alias  | =                                                                                                                                               |
+|--------+-------------------------------------------------------------------------------------------------------------------------------------------------|
+| g      | git                                                                                                                                             |
+| g a    | git add                                                                                                                                         |
+| g aa   | git add -u && git add . && git status                                                                                                           |
+| g ci   | git commit                                                                                                                                      |
+| g co   | git checkout                                                                                                                                    |
+| g com  | git checkout master                                                                                                                             |
+| g dc   | git diff --cached                                                                                                                               |
+| g df   | git diff                                                                                                                                        |
+| g dm   | git diff master                                                                                                                                 |
+| g done | git fetch && git rebase origin/master && git checkout master && git merge @{-1} --ff-only && git push                                           |
+| g ir   | git rebase -i origin/master                                                                                                                     |
+| g lg   | git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative |
+| g rmb  | git branch -d $1 && git push --delete origin $1                                                                                                 |
+| g s    | git status                                                                                                                                      |
+| g up   | git fetch origin && git rebase origin/master                                                                                                    |
+| g wip  | git add -A && git commit -m "wip"                                                                                                               |
 
 ** Some useful commands
 *** bisect
@@ -231,17 +236,25 @@ Take a meat cleaver to your history:
 
 *** revert
 
+# create a new commit reversing the changes
 - git revert <commit>
+# revert a merge
 - git revert -m 1 <merge commit>
 
 *** reset
 
-- git reset --hard
-- git reset --soft
-- git reset --mixed (default)
+Moves HEAD to the specified commit
+
+# leave changes in previous HEAD in staging area
+- git reset --soft HEAD~
+# leave changes in previous HEAD in working tree (default)
+- git reset --mixed HEAD~
+# destroy all changes in previous HEAD
+- git reset --hard HEAD~
 
 *** add
 
+# stage changes in hunks
 - git add -p
 
 *** blame
@@ -250,18 +263,38 @@ Take a meat cleaver to your history:
 
 *** cherry-pick
 
+# apply commit to HEAD
 - git cherry-pick <commit>
 
 *** ranges
 
-- HEAD..<commit>
-- HEAD...<commit>
+# git log
+# commits that b has that a doesn't have
+- git log <commit a>..<commit b>
+# commits in a and b but not both
+- git log <commit a>...<commit b>
+
+# git diff
+# changes between commit a and commit b
+- git diff <commit a> <commit b>
+# same
+- git diff <commit a>..<commit b>
+# changes that occurred on a's branch since it branched off of b's
+- git diff <commit a>...<commit b>
 
 *** commit parents
 
-- HEAD HEAD~0
-- HEAD~ HEAD~1
-- HEAD~~ HEAD~2 HEAD~1~1
+# the current commit
+- HEAD
+- HEAD~0
+# the 1st parent of the current commit
+- HEAD~
+- HEAD~1
+# the 1st parent of the 1st parent of the current commit
+- HEAD~~
+- HEAD~2
+- HEAD~1~1
+# the 2nd parent of the current commit
 - HEAD^2
 
 ** References
