@@ -232,7 +232,7 @@ Take a meat cleaver to your history:
 |--------+-------------------------------------------------------------------------------------------------------------------------------------------------|
 | g      | git                                                                                                                                             |
 | g a    | git add                                                                                                                                         |
-| g aa   | git add --all && git status                                                                                                         |
+| g aa   | git add --all && git status                                                                                                                     |
 | g ci   | git commit                                                                                                                                      |
 | g co   | git checkout                                                                                                                                    |
 | g com  | git checkout master                                                                                                                             |
