@@ -3,6 +3,15 @@
 
 I am not a git expert. I just really like it. I hope you like it too.
 
+** Aims
+
+By the end of this talk you will:
+
+1. Know how to write a better commit message
+2. Be able to rebase with confidence
+3. Know how to effectively reduce your number of keystrokes
+4. Know a few more commands
+
 ** Glossary
 
 | term           | definition                          | e.g.                |
@@ -13,21 +22,22 @@ I am not a git expert. I just really like it. I hope you like it too.
 | fast-forward   | merge without creating a new commit |                     |
 | HEAD           | current revision of a given branch  |                     |
 
-** Why care about your git history?
+** Committing
+*** Why care about your git history?
 
+- Sloppy vs pristine history
 - Git bisect
-- Generating stats
+- Generating stats/metrics: all commits should pass/be deployable
 - History spelunking
-- Gathering metrics: all commits should pass/be deployable
 - Taking pride in your work
 - Better programmer - work in small steps, don't do more work than necessary
 
-** Writing a good commit message
+*** Writing a good commit message
 
-- Don't ever use git commit -m
 - Use the present tense imperative
+- Don't ever use git commit -m
 
-*** Using a template
+**** Using a template
 
 # ~/.gitmessage
 
@@ -42,7 +52,7 @@ I am not a git expert. I just really like it. I hope you like it too.
 #
 # Include a link to the ticket, if any.
 
-*** Linus Torvalds on git message
+**** Linus Torvalds on git message
 
 "I also refuse to pull commits that have been made with the github web
 interface. Again, the reason for that is that the way the github web
@@ -58,6 +68,9 @@ etc that we require for kernel submissions."
 https://github.com/torvalds/linux/pull/17#issuecomment-5663780
 
 ** Rebasing
+
+The #1 rule of rebasing: NEVER REBASE A PUBLIC BRANCH
+
 *** RATFT
 **** Usage
 
@@ -228,97 +241,111 @@ Take a meat cleaver to your history:
 *** bisect
 
 # start it all off
-- git bisect start
+$ git bisect start
 
 # mark a known good commit
-- git bisect good <commit>
+$ git bisect good <commit>
 
 # mark a known bad commit
-- git bisect bad <commit>
+$ git bisect bad <commit>
 
 # tell bisect the commit it checked out is good
-- git bisect good
+$ git bisect good
 
 # tell bisect the commit it checked out is bad
-- git bisect bad
+$ git bisect bad
 
 # automate it
-- git bisect run rspec spec/features/my_broken_spec.rb
+$ git bisect run rspec spec/features/my_broken_spec.rb
 
 *** revert
 
 # create a new commit reversing the changes
-- git revert <commit>
+$ git revert <commit>
 
 # revert a merge
-- git revert -m 1 <merge commit>
+$ git revert -m 1 <merge commit>
+
+*** reflog
+
+$ git reflog
+$ git reflog show <branch>
 
 *** reset
 
 Moves HEAD to the specified commit
 
 # leave changes in previous HEAD in staging area
-- git reset --soft HEAD~
+$ git reset --soft HEAD~
 
 # leave changes in previous HEAD in working tree (default)
-- git reset --mixed HEAD~
+$ git reset --mixed HEAD~
 
 # destroy all changes in previous HEAD
-- git reset --hard HEAD~
+$ git reset --hard HEAD~
+
+# reset to previous commit
+$ git reset --hard <commit>
+
+# reset to previous point in the reflog
+$ git reset --hard <branch>@{<reflog entry>}
+
+# reset to where you were last week
+$ git reset --hard <branch>@{one.week.ago}
 
 *** add
 
 # stage changes in hunks
-- git add -p
+$ git add -p
 
 *** blame
 
-- git blame path/to/file
+$ git blame path/to/file
 
 *** cherry-pick
 
 # apply commit to HEAD
-- git cherry-pick <commit>
+$ git cherry-pick <commit>
 
 *** ranges
 
 # git log
 # commits that b has that a doesn't have
-- git log <commit a>..<commit b>
+$ git log <commit a>..<commit b>
 
 # commits in a and b but not both
-- git log <commit a>...<commit b>
+$ git log <commit a>...<commit b>
 
 # git diff
 # changes between commit a and commit b
-- git diff <commit a> <commit b>
+$ git diff <commit a> <commit b>
 
 # same
-- git diff <commit a>..<commit b>
+$ git diff <commit a>..<commit b>
 
 # changes that occurred on a's branch since it branched off of b's
-- git diff <commit a>...<commit b>
+$ git diff <commit a>...<commit b>
 
 *** commit parents
 
 # the current commit
-- HEAD
-- HEAD~0
+$ HEAD
+$ HEAD~0
 
 # the 1st parent of the current commit
-- HEAD~
-- HEAD~1
+$ HEAD~
+$ HEAD~1
 
 # the 1st parent of the 1st parent of the current commit
-- HEAD~~
-- HEAD~2
-- HEAD~1~1
+$ HEAD~~
+$ HEAD~2
+$ HEAD~1~1
 
 # the 2nd parent of the current commit
-- HEAD^2
+$ HEAD^2
 
 # uh...
-- HEAD~2^2~5^2
+$ HEAD~2^2~5^2
 
 ** References
 
@@ -326,3 +353,4 @@ Moves HEAD to the specified commit
 2. Think Like a Git: http://think-like-a-git.net/
 3. Thoughtbot rebase like a boss: http://robots.thoughtbot.com/rebase-like-a-boss
 4. Git ready: http://gitready.com
+5. Destroy all Software: https://www.destroyallsoftware.com/screencasts
