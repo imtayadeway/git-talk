@@ -249,6 +249,7 @@ Take a meat cleaver to your history:
 
 # create a new commit reversing the changes
 - git revert <commit>
+
 # revert a merge
 - git revert -m 1 <merge commit>
 
@@ -258,8 +259,10 @@ Moves HEAD to the specified commit
 
 # leave changes in previous HEAD in staging area
 - git reset --soft HEAD~
+
 # leave changes in previous HEAD in working tree (default)
 - git reset --mixed HEAD~
+
 # destroy all changes in previous HEAD
 - git reset --hard HEAD~
 
@@ -282,14 +285,17 @@ Moves HEAD to the specified commit
 # git log
 # commits that b has that a doesn't have
 - git log <commit a>..<commit b>
+
 # commits in a and b but not both
 - git log <commit a>...<commit b>
 
 # git diff
 # changes between commit a and commit b
 - git diff <commit a> <commit b>
+
 # same
 - git diff <commit a>..<commit b>
+
 # changes that occurred on a's branch since it branched off of b's
 - git diff <commit a>...<commit b>
 
@@ -298,15 +304,21 @@ Moves HEAD to the specified commit
 # the current commit
 - HEAD
 - HEAD~0
+
 # the 1st parent of the current commit
 - HEAD~
 - HEAD~1
+
 # the 1st parent of the 1st parent of the current commit
 - HEAD~~
 - HEAD~2
 - HEAD~1~1
+
 # the 2nd parent of the current commit
 - HEAD^2
+
+# uh...
+- HEAD~2^2~5^2
 
 ** References
 
