@@ -11,6 +11,7 @@ By the end of this talk you will:
 2. Be able to rebase with confidence
 3. Know how to effectively reduce your number of keystrokes
 4. Know a few more commands
+5. Have a better appreciation of what git does under the hood
 
 ** Glossary
 
@@ -23,9 +24,17 @@ By the end of this talk you will:
 | HEAD           | current revision of a given branch  |                     |
 
 ** Committing
+
+An anecdotal interlude....
+
+*** Committing antipatterns
+
+- putting everything into one big commit
+- breaking something, committing. fixing it later.
+- rebasing or committing in hunks without checking the state of each commit
+
 *** Why care about your git history?
 
-- Sloppy vs pristine history
 - Git bisect
 - Generating stats/metrics: all commits should pass/be deployable
 - History spelunking
@@ -111,6 +120,7 @@ a-b-c-f-d-e
 **** Why?
 
 - Fail early: deal with merge conflicts as they come up.
+- Keeps the history clean - keeps merge bubbles under control.
 
 ***** Stop this from happening:
 
@@ -222,7 +232,7 @@ Take a meat cleaver to your history:
 |--------+-------------------------------------------------------------------------------------------------------------------------------------------------|
 | g      | git                                                                                                                                             |
 | g a    | git add                                                                                                                                         |
-| g aa   | git add -u && git add . && git status                                                                                                           |
+| g aa   | git add --all && git status                                                                                                         |
 | g ci   | git commit                                                                                                                                      |
 | g co   | git checkout                                                                                                                                    |
 | g com  | git checkout master                                                                                                                             |
@@ -238,6 +248,60 @@ Take a meat cleaver to your history:
 | g wip  | git add -A && git commit -m "wip"                                                                                                               |
 
 ** Some useful commands
+
+*** reflog
+
+$ git reflog
+$ git reflog show <branch>
+
+*** ranges
+
+# git log
+# commits that b has that a doesn't have
+$ git log <commit a>..<commit b>
+
+# commits in a and b but not both
+$ git log <commit a>...<commit b>
+
+# git diff
+# changes between commit a and commit b
+$ git diff <commit a> <commit b>
+
+# same
+$ git diff <commit a>..<commit b>
+
+# changes that occurred on a's branch since it branched off of b's
+$ git diff <commit a>...<commit b>
+
+# git checkout
+# checkout the merge base of a and b
+$ git checkout <commit a>...<commit b>
+
+*** commit parents
+
+# the current commit
+$ HEAD
+$ HEAD~0
+
+# the 1st parent of the current commit
+$ HEAD~
+$ HEAD~1
+
+# the 1st parent of the 1st parent of the current commit
+$ HEAD~~
+$ HEAD~2
+$ HEAD~1~1
+
+# the 2nd parent of the current commit
+$ HEAD^2
+
+# uh...
+$ HEAD~2^2~5^2
+
+*** add
+
+# stage changes in hunks
+$ git add -p
 *** bisect
 
 # start it all off
@@ -258,6 +322,15 @@ $ git bisect bad
 # automate it
 $ git bisect run rspec spec/features/my_broken_spec.rb
 
+*** blame
+
+$ git blame path/to/file
+
+*** cherry-pick
+
+# apply commit to HEAD
+$ git cherry-pick <commit>
+
 *** revert
 
 # create a new commit reversing the changes
@@ -265,11 +338,6 @@ $ git revert <commit>
 
 # revert a merge
 $ git revert -m 1 <merge commit>
-
-*** reflog
-
-$ git reflog
-$ git reflog show <branch>
 
 *** reset
 
@@ -292,60 +360,6 @@ $ git reset --hard <branch>@{<reflog entry>}
 
 # reset to where you were last week
 $ git reset --hard <branch>@{one.week.ago}
-
-*** add
-
-# stage changes in hunks
-$ git add -p
-
-*** blame
-
-$ git blame path/to/file
-
-*** cherry-pick
-
-# apply commit to HEAD
-$ git cherry-pick <commit>
-
-*** ranges
-
-# git log
-# commits that b has that a doesn't have
-$ git log <commit a>..<commit b>
-
-# commits in a and b but not both
-$ git log <commit a>...<commit b>
-
-# git diff
-# changes between commit a and commit b
-$ git diff <commit a> <commit b>
-
-# same
-$ git diff <commit a>..<commit b>
-
-# changes that occurred on a's branch since it branched off of b's
-$ git diff <commit a>...<commit b>
-
-*** commit parents
-
-# the current commit
-$ HEAD
-$ HEAD~0
-
-# the 1st parent of the current commit
-$ HEAD~
-$ HEAD~1
-
-# the 1st parent of the 1st parent of the current commit
-$ HEAD~~
-$ HEAD~2
-$ HEAD~1~1
-
-# the 2nd parent of the current commit
-$ HEAD^2
-
-# uh...
-$ HEAD~2^2~5^2
 
 ** References
 
