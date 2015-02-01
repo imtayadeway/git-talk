@@ -227,11 +227,22 @@ Take a meat cleaver to your history:
 ** Some useful commands
 *** bisect
 
+# start it all off
 - git bisect start
+
+# mark a known good commit
 - git bisect good <commit>
+
+# mark a known bad commit
 - git bisect bad <commit>
+
+# tell bisect the commit it checked out is good
 - git bisect good
+
+# tell bisect the commit it checked out is bad
 - git bisect bad
+
+# automate it
 - git bisect run rspec spec/features/my_broken_spec.rb
 
 *** revert
