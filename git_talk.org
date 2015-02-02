@@ -48,6 +48,10 @@ An anecdotal interlude....
 
 **** Using a template
 
+# ~/.gitconfig
+[commit]
+  template = ~/.gitmessage
+
 # ~/.gitmessage
 
 
@@ -248,7 +252,6 @@ Take a meat cleaver to your history:
 | g wip  | git add -A && git commit -m "wip"                                                                                                               |
 
 ** Some useful commands
-
 *** reflog
 
 $ git reflog
@@ -302,6 +305,7 @@ $ HEAD~2^2~5^2
 
 # stage changes in hunks
 $ git add -p
+
 *** bisect
 
 # start it all off
