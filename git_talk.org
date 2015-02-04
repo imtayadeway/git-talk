@@ -2,6 +2,7 @@
 ** Disclaimer
 
 I am not a git expert. I just really like it. I hope you like it too.
+Opinions may be expressed more strongly than they are held.
 
 ** Aims
 
@@ -15,13 +16,14 @@ By the end of this talk you will:
 
 ** Glossary
 
-| term           | definition                          | e.g.                |
-|----------------+-------------------------------------+---------------------|
-| private branch | a branch that is used by just you   | tw/DSP-23-feature-1 |
-| public branch  | a branch that is shared by many     | master              |
-| staging area   | the index                           |                     |
-| fast-forward   | merge without creating a new commit |                     |
-| HEAD           | current revision of a given branch  |                     |
+| term           | definition                           | e.g.                |
+|----------------+--------------------------------------+---------------------|
+| git            | a person who is stupid or unpleasant |                     |
+| private branch | a branch that is used by just you    | tw/DSP-23-feature-1 |
+| public branch  | a branch that is shared by many      | master              |
+| staging area   | the index                            |                     |
+| fast-forward   | merge without creating a new commit  |                     |
+| HEAD           | current revision of a given branch   |                     |
 
 ** Committing
 
