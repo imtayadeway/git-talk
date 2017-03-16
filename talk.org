@@ -331,7 +331,7 @@ categories - /Solitary Unit Tests/ and /Sociable Unit Tests/." - Jay Fields (WEW
 2. /Sociable Unit Tests/ are more susceptible to cascading failures" - Jay Fields (WEWUT) 232
 
 * You have to grow a test suite (i.e. don't just add new tests)
-* Automated testing was invented in 2012
+
 * References
 - http://martinfowler.com/bliki/UnitTest.html
 - http://martinfowler.com/articles/mocksArentStubs.html
