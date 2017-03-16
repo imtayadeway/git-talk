@@ -201,12 +201,6 @@ something much larger that likely includes many collaborating
 classes. I find value in splitting my unit tests into two distinct
 categories - /Solitary Unit Tests/ and /Sociable Unit Tests/." - Jay Fields (WEWUT) 84
 
-* Unit - Portlandia
-“Every time you say the word ‘unit’ [...] I feel a penis here, I feel
-a penis here, I feel a penis here — I am halfway to pregnant.” - Toni
-
-
-
 
 * Rails' test frameworks
 :PROPERTIES:
