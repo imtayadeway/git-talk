@@ -54,14 +54,13 @@ It depends
 - Functional
 
 * Features
-- Does it change the world?
-- Does it cross a boundary?
+- Does it cross a boundary (does it change the world)?
 - Does the thing under test talk to other things?
-- Is the thing under test a smaller part of another thing?
+
 
 * Attitudes
-
-Which of those features do I care about?
+- Do the collection of things I'm talking about belong together?
+- Is the thing under test a smaller part of another thing?
 
 * But there are a lot of strong and conflicting opinions around testing
 * Why?
