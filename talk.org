@@ -1,0 +1,375 @@
+#+TITLE: What We Talk About When We Talk About Unit Testing
+#+AUTHOR: Tim Wade
+#+EMAIL: hello@timjwade.com
+#+OPTIONS: title:nil, toc:nil, H:1
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [bigger]
+#+BEAMER_THEME: Singapore
+#+startup: beamer
+
+\centering
+
+* Is this a Unit Test?
+  #+BEGIN_SRC ruby
+  it "quacks" do
+    duck = Duck.new(:name => "Stewart")
+    expect(duck.speak).to eq("Quack")
+  end
+  #+END_SRC
+
+* Is this a Unit Test?
+  #+BEGIN_SRC ruby
+  it "quacks" do
+    duck = Duck.new(:name => "Stewart")
+    bread = Bread.new
+    expect(duck.feed(bread)).to eq("Quack")
+  end
+  #+END_SRC
+
+* Is this a Unit Test?
+  #+BEGIN_SRC ruby
+  it "quacks" do
+    duck = FactoryGirl.create(:duck)
+    expect(duck.speak).to eq("Quack")
+  end
+  #+END_SRC
+
+* What is a Unit Test?
+:PROPERTIES:
+:BEAMER_ENV: fullframe
+:END:
+
+What is a Unit Test?
+
+* It depends
+:PROPERTIES:
+:BEAMER_ENV: fullframe
+:END:
+
+It depends
+
+* Programming Paradigm
+- Object Oriented
+- Procedural
+- Functional
+
+* Features
+- Does it change the world?
+- Does it cross a boundary?
+- Does the thing under test talk to other things?
+- Is the thing under test a smaller part of another thing?
+
+* Attitudes
+
+Which of those features do I care about?
+
+* But there are a lot of strong and conflicting opinions around testing
+* Why?
+* Because TDD is kind of new
+* Invented in 2012
+* By Kent Beck
+* Plethora of terms
+- Unit Tests
+- Integration Tests
+- Full Stack Tests
+- System Tests
+- Acceptance Tests
+- Smoke Tests
+- Functional Tests
+- Contract Tests
+- Collaboration Tests
+
+* We're really vague about what those terms mean
+
+* I want to focus on just two of those terms
+- Unit test
+- Integration test
+
+* When people talk about testing they rarely define terms
+
+People rarely define terms
+
+* Learning TDD is hard - lots of people tell me that
+
+Learning TDD is hard
+
+* Aligns with my own experience
+- yep
+* I am confused about the vagueness of those terms
+- yep
+* Sometimes we are talking about different things
+* Integration Tests are a Scam - J.B. Rainsberger
+- Duplication
+- Test isolation
+- Feedback
+- Coverage - explosion
+- Contract Tests
+- Collaboration Tests
+- https://vimeo.com/80533536
+
+* TDD: Where did it all go wrong? - Ian Cooper
+- Brittle
+- Hard to read
+- Hard to refactor
+- Sociable Tests
+- https://vimeo.com/68375232
+
+* Sociable Unit Tests vs Integration Tests
+- the same?
+
+* What is a Unit Test?
+* Is this a Unit Test?
+  #+BEGIN_SRC ruby
+  it "quacks" do
+    duck = Duck.new(:name => "Stewart")
+    expect(duck.speak).to eq("Quack")
+  end
+  #+END_SRC
+
+* Is this a Unit Test?
+  #+BEGIN_SRC ruby
+  it "quacks" do
+    duck = Duck.new(:name => "Stewart")
+    bread = Bread.new
+    expect(duck.feed(bread)).to eq("Quack")
+  end
+  #+END_SRC
+
+* Is this a Unit Test?
+  #+BEGIN_SRC ruby
+  it "quacks" do
+    duck = FactoryGirl.create(:duck)
+    expect(duck.speak).to eq("Quack")
+  end
+  #+END_SRC
+
+* What is an Integration test?
+* Is this an Integration test?
+
+  #+BEGIN_SRC ruby
+    it "quacks" do
+      duck = Duck.new(:name => "Stewart")
+      expect(duck.speak).to eq("Quack")
+    end
+  #+END_SRC
+
+* Is this an Integration test?
+
+  #+BEGIN_SRC ruby
+  it "quacks" do
+    duck = Duck.new(:name => "Stewart")
+    bread = Bread.new
+    expect(duck.feed(bread)).to eq("Quack")
+  end
+  #+END_SRC
+
+* Is this an Integration test?
+
+#+BEGIN_SRC ruby
+  it "quacks" do
+    duck = FactoryGirl.create(:duck)
+    expect(duck.speak).to eq("Quack")
+  end
+#+END_SRC
+
+
+* Broadly defined/constrasted
+|            | Unit Test                            | Integration Test              |
+|------------+--------------------------------------+-------------------------------|
+| Mockist    | One class, stub collaborators        | Many classes working together |
+| Classicist | Class or small collection of classes | Crosses boundaries            |
+
+
+* What is test isolation?
+- Isolation from other units?
+- Isolation from the world?
+
+** "But the main lesson I took was that tests should be able to ignore
+one another completely. If I had one test broken, I wanted one
+problem. If I had two tests broken, I wanted two problems.
+
+** "One convenient implication of isolated tests is that the tests are
+order independent. If I want to grab a subset of tests and run them,
+then I can do so without worrying that a test will break now because
+of a prerequisite test is gone." - Kent Beck (TDDBE) 125
+
+
+
+* quote
+"[...] a unit can be an individual Java method, but it can also be
+something much larger that likely includes many collaborating
+classes. I find value in splitting my unit tests into two distinct
+categories - /Solitary Unit Tests/ and /Sociable Unit Tests/." - Jay Fields (WEWUT) 84
+
+* Unit - Portlandia
+“Every time you say the word ‘unit’ [...] I feel a penis here, I feel
+a penis here, I feel a penis here — I am halfway to pregnant.” - Toni
+
+
+
+
+* Rails' test frameworks
+:PROPERTIES:
+:BEAMER_ENV: fullframe
+:END:
+
+  #+BEGIN_SRC
+  test
+  ├── controllers
+  ├── fixtures
+  │   └── files
+  ├── helpers
+  ├── integration
+  ├── mailers
+  ├── models
+  └── test_helper.rb
+  #+END_SRC
+
+
+
+
+* Extracting a class == extracting a unit?
+
+  #+BEGIN_SRC ruby
+    class Calculator
+      def add(a, b) # !> previous definition of add was here
+        a + b
+      end
+    end
+
+  #+END_SRC
+
+  #+BEGIN_SRC ruby
+    class Calculator
+      def add(a, b) # !> method redefined; discarding old add
+        Addition.new.add(a, b)
+      end
+    end
+
+    class Addition
+      def add(a, b)
+        a + b
+      end
+    end
+  #+END_SRC
+
+  #+BEGIN_SRC ruby
+    class Calculator
+      def reciprocal(a)
+        divide(1, a)
+      end
+
+      private
+
+      def divide(a, b)
+        a / b
+      end
+    end
+  #+END_SRC
+
+  #+BEGIN_SRC ruby
+    Class Calculator
+      def reciprocal(a)
+        Division.new.divide(1, a)
+      end
+    end
+
+    class Division
+      def divide(a, b)
+        a / b
+      end
+    end
+  #+END_SRC
+
+#+BEGIN_SRC ruby
+  class Duck
+    def feed(food)
+      @energy += food.energy
+      quack
+    end
+
+    private
+
+    def quack
+      puts "Quack!"
+    end
+  end
+#+END_SRC
+
+#+BEGIN_SRC ruby
+  class Duck
+    def feed(food)
+      @energy += food.energy
+      Quacker.new.quack
+    end
+  end
+
+  class Quacker
+    def quack
+      puts "Quack!"
+    end
+  end
+#+END_SRC
+
+* Classicists - exploding complexity vs mockists - overspecified (hard to refactor)
+|                   | Classicist | Mockist    |
+|-------------------+------------+------------|
+| Development style | Middle-out | Outside-in |
+| Complexity        | Higher     | Lower      |
+| Refactoring       | Easier     | Harder     |
+| Coupling          | Lower      | Higher     |
+| Fragility         | Higher     | Lower      |
+|                   |            |            |
+
+* Where does the pyramid come from? What style are they?
+
+
+* It's really hard to do the test pyramid on Rails because they're all integration tests
+* Ruby on X
+* Biggest problem I have with codebases: not using the framework
+* So feel weird about recommending you deviate from the test framework
+* DHH - TDD is dead
+* Quotes
+
+** "There are two primary reasons for writing  /Solitary Unit Tests/:
+
+"1. /Sociable Unit Tests/ can be slow and nondeterministic
+2. /Sociable Unit Tests/ are more susceptible to cascading failures" - Jay Fields (WEWUT) 232
+
+* You have to grow a test suite (i.e. don't just add new tests)
+* Automated testing was invented in 2012
+* References
+- http://martinfowler.com/bliki/UnitTest.html
+- http://martinfowler.com/articles/mocksArentStubs.html
+- English guy's talk
+- Kent Beck's book
+- Jay Fields book
+- xUnit Test patterns
+- http://martinfowler.com/bliki/TestPyramid.html
+
+
+cghuhrzdh9n6sfws
+
+
+* My name is Tim
+* I love testing
+* I know, it's weird
+* I see lots of people here, which I assume is not a mistake
+* This talk is the distillation of bitter arguments I've had with people in the past
+* Well, they weren't really bitter
+
+
+
+
+* Conclusion
+- Always define your terms when you're talking about Unit/Integration Testing
+- If you're a classicist/mockist or don't know, try another approach
+- You have to answer more difficult questions if you don't strongly identify with one or the other
+
+* Themes
+** Rochester
+** Madrid
+* Tips & Tricks
+:PROPERTIES:
+:BEAMER_ENV: fullframe
+:END:
