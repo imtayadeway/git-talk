@@ -344,17 +344,6 @@ categories - /Solitary Unit Tests/ and /Sociable Unit Tests/." - Jay Fields (WEW
 
 cghuhrzdh9n6sfws
 
-
-* My name is Tim
-* I love testing
-* I know, it's weird
-* I see lots of people here, which I assume is not a mistake
-* This talk is the distillation of bitter arguments I've had with people in the past
-* Well, they weren't really bitter
-
-
-
-
 * Conclusion
 - Always define your terms when you're talking about Unit/Integration Testing
 - If you're a classicist/mockist or don't know, try another approach
