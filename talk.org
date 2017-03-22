@@ -104,6 +104,8 @@ It depends
 - Do the collection of things I'm talking about belong together?
 - Is the thing under test a smaller part of another thing?
 
+* Isolation
+- What does isolation mean?
 * But there are a lot of strong and conflicting opinions around testing
 * Why?
 * Because TDD is kind of new
