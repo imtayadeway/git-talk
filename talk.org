@@ -100,7 +100,6 @@ It depends
 - Does it cross a boundary (does it change the world)?
 - Does the thing under test talk to other things?
 
-
 * Attitudes
 - Do the collection of things I'm talking about belong together?
 - Is the thing under test a smaller part of another thing?
