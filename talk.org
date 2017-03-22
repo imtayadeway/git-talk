@@ -107,10 +107,10 @@ It depends
 * Isolation
 - What does isolation mean?
 * But there are a lot of strong and conflicting opinions around testing
-* Why?
-* Because TDD is kind of new
-* Invented in 2012
-* By Kent Beck
+** Why?
+** Because TDD is kind of new
+** Invented in 2012
+** By Kent Beck
 * Plethora of terms
 - Unit Tests
 - Integration Tests
