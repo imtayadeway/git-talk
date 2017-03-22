@@ -9,6 +9,49 @@
 
 \centering
 
+* What is a Unit Test?
+* It depends
+* Features and Attitudes
+* Feature: Programming Paradigm
+* Feature: Boundaries built into the language
+* Attitude: On what you think a unit is
+* Attitude: On what you think isolation is
+* Attitude: How you write
+
+* Attitude 1: units are classes
+* Mockist
+* Typically Outside-in
+* Starts with a single acceptance test that exercises all parts of the system
+* A system composed in layers will start at the outside and mock each subsequent layer that it depends upon
+* Each test is isolated from external classes
+* Integration tests combine different classes working together
+* Leads to small, clean and well designed interfaces
+* Leads to tight coupling between the test and the implementation
+* Better test feedback
+* Harder to refactor
+
+* Attitude 2: units can be collections of small, related classes
+* Classicist
+* Typically Middle-out
+* Starts with domain-model objects, upon which everything else depends. The system is slowly built up around these objects
+* Each test is isolated from external boundaries i.e. network, database
+* Integration tests cross the boundaries
+* Less feedback on design of the smaller parts and their interactions
+* Leads to loosely coupled tests
+* Prone to cascading failures
+* Easier to refactor
+
+* Ruby on X - an example
+* Omakase
+* Doesn't quite fit either
+* They are all integration tests
+* Integration crosses the network
+* Controller tests are integration tests in another folder
+* Model tests (the 'unit' tests) all interact with the database
+* Interaction with the database is permitted/encouraged in all the test frameworks?
+* Usually departing from the framework a bad idea
+* But I disagree when it comes to testing
+
 * Is this a Unit Test?
   #+BEGIN_SRC ruby
   it "quacks" do
