@@ -181,6 +181,7 @@
 - But I disagree when it comes to testing
 * The Test Pyramid
 [[./img/test-pyramid.png]]
+* TDD is Dead
 
 * Quotes
 ** "But the main lesson I took was that tests should be able to ignore
