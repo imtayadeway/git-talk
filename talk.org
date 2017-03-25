@@ -227,9 +227,6 @@ of a prerequisite test is gone." - Kent Beck (TDDBE) 125
 
 
 
-* Themes
-** Rochester
-** Madrid
 * Tips & Tricks
 :PROPERTIES:
 :BEAMER_ENV: fullframe
