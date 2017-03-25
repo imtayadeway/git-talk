@@ -37,10 +37,9 @@
 * It depends
 * Why?
 * Testing is new(ish)
-* We couldn't decide what the terms mean
+* We couldn't decide what the terms meant
 * So we made more terms
 * All the Terms
-** Plethora of terms
 - Unit Tests
 - Integration Tests
 - Full Stack Tests
@@ -51,77 +50,52 @@
 - Contract Tests
 - Collaboration Tests
 
-* Two (or three terms)
+* Two (or three) terms
+- Unit Tests
+- Integration Tests
+- (Test isolation)
+
 * Features and Attitudes
 * Feature: Programming Paradigm
-** Programming Paradigm
 - Object Oriented
 - Procedural
 - Functional
 
 * Feature: Boundaries built into the language
-* Attitude: On what you think a unit is
-- Do the collection of things I'm talking about belong together?
-- Is the thing under test a smaller part of another thing?
+- Objects
+- Public/Private
 
-* Attitude: On what you think isolation is
-- Isolation from other classes
+* Attitude: What you think a unit is
+
+* Attitude: What you think isolation is
+- Isolation from other objects
 - Isolation from boundaries you don't control
-* Attitude: How you write
 
-* Illustration: Extracting a class == extracting a unit?
+* Illustration
+#+BEGIN_SRC ruby
+  class Duck
+    def feed(food)
+      @energy += food.energy
+      puts "Quack!"
+    end
+  end
+#+END_SRC
 
-  #+BEGIN_SRC ruby
-    class Calculator
-      def add(a, b) # !> previous definition of add was here
-        a + b
-      end
+* Illustration
+#+BEGIN_SRC ruby
+  class Duck
+    def feed(food)
+      @energy += food.energy
+      quack
     end
 
-  #+END_SRC
-
-  #+BEGIN_SRC ruby
-    class Calculator
-      def add(a, b) # !> method redefined; discarding old add
-        Addition.new.add(a, b)
-      end
+    def quack
+      puts "Quack!"
     end
+  end
+#+END_SRC
 
-    class Addition
-      def add(a, b)
-        a + b
-      end
-    end
-  #+END_SRC
-
-  #+BEGIN_SRC ruby
-    class Calculator
-      def reciprocal(a)
-        divide(1, a)
-      end
-
-      private
-
-      def divide(a, b)
-        a / b
-      end
-    end
-  #+END_SRC
-
-  #+BEGIN_SRC ruby
-    Class Calculator
-      def reciprocal(a)
-        Division.new.divide(1, a)
-      end
-    end
-
-    class Division
-      def divide(a, b)
-        a / b
-      end
-    end
-  #+END_SRC
-
+* Illustration
 #+BEGIN_SRC ruby
   class Duck
     def feed(food)
@@ -137,6 +111,7 @@
   end
 #+END_SRC
 
+* Illustration
 #+BEGIN_SRC ruby
   class Duck
     def feed(food)
@@ -152,32 +127,34 @@
   end
 #+END_SRC
 
+* Attitude 1: Units are Classes
+- Isolated from other classes
+- Stub/Mock collaborators
+- Favors Outside-in development
+- Integration tests combine different classes working together
 
-* Attitude 1: units are classes
-* Mockist
-* Typically Outside-in
-* Starts with a single acceptance test that exercises all parts of the system
-* A system composed in layers will start at the outside and mock each subsequent layer that it depends upon
-* Each test is isolated from external classes
-* Integration tests combine different classes working together
-* Leads to small, clean and well designed interfaces
-* Leads to tight coupling between the test and the implementation
-* Better test feedback
-* Harder to refactor
+* Attitude 1: Units are Classes
+-  Leads to small, clean and well designed interfaces
+-  Leads to tight coupling between the test and the implementation
+-  Better test feedback
+-  Harder to refactor
 
-* Attitude 2: units can be collections of small, related classes
-* Classicist
-* Typically Middle-out
-* Starts with domain-model objects, upon which everything else depends. The system is slowly built up around these objects
-* Each test is isolated from external boundaries i.e. network, database
-* Integration tests cross the boundaries
-* Less feedback on design of the smaller parts and their interactions
-* Leads to loosely coupled tests
-* Prone to cascading failures
-* Easier to refactor
+* Attitude 2: Units can be Collections of Related Classes/Methods
+- Isolated from changing 'the world' (network, filesystem, etc.)
+- Avoids the use of Mocks/Stubs
+- Favors Middle-out development
+- Integration tests cross the boundaries
 
-* Ruby on X - an example
-* Rails' test frameworks
+* Attitude 2: Units can be Collections of Related Classes/Methods
+- Less feedback on design of the smaller parts and their interactions
+- Leads to loosely coupled tests
+- Prone to cascading failures
+- Easier to refactor
+
+* Classicist vs. Mockist
+
+* Ruby on X
+* The Test Frameworks
 :PROPERTIES:
 :BEAMER_ENV: fullframe
 :END:
@@ -193,17 +170,17 @@
   ├── models
   └── test_helper.rb
   #+END_SRC
-* Biggest problem I have with codebases: not using the framework
-* Omakase
-* Doesn't quite fit either
 * They are all integration tests
-* Integration crosses the network
-* Controller tests are integration tests in another folder
-* Model tests (the 'unit' tests) all interact with the database
-* Interaction with the database is permitted/encouraged in all the test frameworks?
-* Usually departing from the framework a bad idea
-* But I disagree when it comes to testing
-* It's really hard to do the test pyramid on Rails because they're all integration tests
+- Controller tests are integration tests in another folder
+- Model tests (the 'unit' tests) all interact with the database
+- Interaction with the database is permitted/encouraged in all the test frameworks?
+- Isolation unimportant/irrelevant
+
+* Omakase
+- Usually departing from the framework a bad idea
+- But I disagree when it comes to testing
+* The Test Pyramid
+[[./img/test-pyramid.png]]
 
 * Quotes
 ** "But the main lesson I took was that tests should be able to ignore
