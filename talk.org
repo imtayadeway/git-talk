@@ -103,22 +103,6 @@
 * Usually departing from the framework a bad idea
 * But I disagree when it comes to testing
 
-* Integration Tests are a Scam - J.B. Rainsberger
-- Duplication
-- Test isolation
-- Feedback
-- Coverage - explosion
-- Contract Tests
-- Collaboration Tests
-- https://vimeo.com/80533536
-
-* TDD: Where did it all go wrong? - Ian Cooper
-- Brittle
-- Hard to read
-- Hard to refactor
-- Sociable Tests
-- https://vimeo.com/68375232
-
 * Sociable Unit Tests vs Integration Tests
 - the same?
 
