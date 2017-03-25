@@ -223,11 +223,3 @@ of a prerequisite test is gone." - Kent Beck (TDDBE) 125
 
 "1. /Sociable Unit Tests/ can be slow and nondeterministic
 2. /Sociable Unit Tests/ are more susceptible to cascading failures" - Jay Fields (WEWUT) 232
-
-
-
-
-* Tips & Tricks
-:PROPERTIES:
-:BEAMER_ENV: fullframe
-:END:
