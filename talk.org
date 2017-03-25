@@ -177,6 +177,22 @@
 * Easier to refactor
 
 * Ruby on X - an example
+* Rails' test frameworks
+:PROPERTIES:
+:BEAMER_ENV: fullframe
+:END:
+
+  #+BEGIN_SRC
+  test
+  ├── controllers
+  ├── fixtures
+  │   └── files
+  ├── helpers
+  ├── integration
+  ├── mailers
+  ├── models
+  └── test_helper.rb
+  #+END_SRC
 * Omakase
 * Doesn't quite fit either
 * They are all integration tests
@@ -218,24 +234,6 @@ of a prerequisite test is gone." - Kent Beck (TDDBE) 125
 something much larger that likely includes many collaborating
 classes. I find value in splitting my unit tests into two distinct
 categories - /Solitary Unit Tests/ and /Sociable Unit Tests/." - Jay Fields (WEWUT) 84
-
-
-* Rails' test frameworks
-:PROPERTIES:
-:BEAMER_ENV: fullframe
-:END:
-
-  #+BEGIN_SRC
-  test
-  ├── controllers
-  ├── fixtures
-  │   └── files
-  ├── helpers
-  ├── integration
-  ├── mailers
-  ├── models
-  └── test_helper.rb
-  #+END_SRC
 
 
 
