@@ -69,6 +69,90 @@
 - Isolation from boundaries you don't control
 * Attitude: How you write
 
+* Illustration: Extracting a class == extracting a unit?
+
+  #+BEGIN_SRC ruby
+    class Calculator
+      def add(a, b) # !> previous definition of add was here
+        a + b
+      end
+    end
+
+  #+END_SRC
+
+  #+BEGIN_SRC ruby
+    class Calculator
+      def add(a, b) # !> method redefined; discarding old add
+        Addition.new.add(a, b)
+      end
+    end
+
+    class Addition
+      def add(a, b)
+        a + b
+      end
+    end
+  #+END_SRC
+
+  #+BEGIN_SRC ruby
+    class Calculator
+      def reciprocal(a)
+        divide(1, a)
+      end
+
+      private
+
+      def divide(a, b)
+        a / b
+      end
+    end
+  #+END_SRC
+
+  #+BEGIN_SRC ruby
+    Class Calculator
+      def reciprocal(a)
+        Division.new.divide(1, a)
+      end
+    end
+
+    class Division
+      def divide(a, b)
+        a / b
+      end
+    end
+  #+END_SRC
+
+#+BEGIN_SRC ruby
+  class Duck
+    def feed(food)
+      @energy += food.energy
+      quack
+    end
+
+    private
+
+    def quack
+      puts "Quack!"
+    end
+  end
+#+END_SRC
+
+#+BEGIN_SRC ruby
+  class Duck
+    def feed(food)
+      @energy += food.energy
+      Quacker.new.quack
+    end
+  end
+
+  class Quacker
+    def quack
+      puts "Quack!"
+    end
+  end
+#+END_SRC
+
+
 * Attitude 1: units are classes
 * Mockist
 * Typically Outside-in
@@ -156,88 +240,6 @@ categories - /Solitary Unit Tests/ and /Sociable Unit Tests/." - Jay Fields (WEW
 
 
 
-* Extracting a class == extracting a unit?
-
-  #+BEGIN_SRC ruby
-    class Calculator
-      def add(a, b) # !> previous definition of add was here
-        a + b
-      end
-    end
-
-  #+END_SRC
-
-  #+BEGIN_SRC ruby
-    class Calculator
-      def add(a, b) # !> method redefined; discarding old add
-        Addition.new.add(a, b)
-      end
-    end
-
-    class Addition
-      def add(a, b)
-        a + b
-      end
-    end
-  #+END_SRC
-
-  #+BEGIN_SRC ruby
-    class Calculator
-      def reciprocal(a)
-        divide(1, a)
-      end
-
-      private
-
-      def divide(a, b)
-        a / b
-      end
-    end
-  #+END_SRC
-
-  #+BEGIN_SRC ruby
-    Class Calculator
-      def reciprocal(a)
-        Division.new.divide(1, a)
-      end
-    end
-
-    class Division
-      def divide(a, b)
-        a / b
-      end
-    end
-  #+END_SRC
-
-#+BEGIN_SRC ruby
-  class Duck
-    def feed(food)
-      @energy += food.energy
-      quack
-    end
-
-    private
-
-    def quack
-      puts "Quack!"
-    end
-  end
-#+END_SRC
-
-#+BEGIN_SRC ruby
-  class Duck
-    def feed(food)
-      @energy += food.energy
-      Quacker.new.quack
-    end
-  end
-
-  class Quacker
-    def quack
-      puts "Quack!"
-    end
-  end
-#+END_SRC
 
 * Classicists - exploding complexity vs mockists - overspecified (hard to refactor)
 |                   | Classicist | Mockist    |
