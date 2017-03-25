@@ -9,17 +9,64 @@
 
 \centering
 
-* What is a Unit Test?
+* Is this a Unit Test?
+  #+BEGIN_SRC ruby
+  it "quacks" do
+    duck = Duck.new(:name => "Stewart")
+    expect(duck.speak).to eq("Quack")
+  end
+  #+END_SRC
+
+* Is this a Unit Test?
+  #+BEGIN_SRC ruby
+  it "quacks" do
+    duck = Duck.new(:name => "Stewart")
+    bread = Bread.new
+    expect(duck.feed(bread)).to eq("Quack")
+  end
+  #+END_SRC
+
+* Is this a Unit Test?
+  #+BEGIN_SRC ruby
+  it "quacks" do
+    duck = FactoryGirl.create(:duck)
+    expect(duck.speak).to eq("Quack")
+  end
+  #+END_SRC
+
 * It depends
 * Why?
 * Testing is new(ish)
-* All the Terms (we made more terms)
+* We couldn't decide what the terms mean
+* So we made more terms
+* All the Terms
+** Plethora of terms
+- Unit Tests
+- Integration Tests
+- Full Stack Tests
+- System Tests
+- Acceptance Tests
+- Smoke Tests
+- Functional Tests
+- Contract Tests
+- Collaboration Tests
+
 * Two (or three terms)
 * Features and Attitudes
 * Feature: Programming Paradigm
+** Programming Paradigm
+- Object Oriented
+- Procedural
+- Functional
+
 * Feature: Boundaries built into the language
 * Attitude: On what you think a unit is
+- Do the collection of things I'm talking about belong together?
+- Is the thing under test a smaller part of another thing?
+
 * Attitude: On what you think isolation is
+- Isolation from other classes
+- Isolation from boundaries you don't control
 * Attitude: How you write
 
 * Attitude 1: units are classes
@@ -56,95 +103,6 @@
 * Usually departing from the framework a bad idea
 * But I disagree when it comes to testing
 
-* Is this a Unit Test?
-  #+BEGIN_SRC ruby
-  it "quacks" do
-    duck = Duck.new(:name => "Stewart")
-    expect(duck.speak).to eq("Quack")
-  end
-  #+END_SRC
-
-* Is this a Unit Test?
-  #+BEGIN_SRC ruby
-  it "quacks" do
-    duck = Duck.new(:name => "Stewart")
-    bread = Bread.new
-    expect(duck.feed(bread)).to eq("Quack")
-  end
-  #+END_SRC
-
-* Is this a Unit Test?
-  #+BEGIN_SRC ruby
-  it "quacks" do
-    duck = FactoryGirl.create(:duck)
-    expect(duck.speak).to eq("Quack")
-  end
-  #+END_SRC
-
-* What is a Unit Test?
-:PROPERTIES:
-:BEAMER_ENV: fullframe
-:END:
-
-What is a Unit Test?
-
-* It depends
-:PROPERTIES:
-:BEAMER_ENV: fullframe
-:END:
-
-It depends
-
-* Programming Paradigm
-- Object Oriented
-- Procedural
-- Functional
-
-* Features
-- Does it cross a boundary (does it change the world)?
-- Does the thing under test talk to other things?
-
-* Attitudes
-- Do the collection of things I'm talking about belong together?
-- Is the thing under test a smaller part of another thing?
-
-* Isolation
-- What does isolation mean?
-* But there are a lot of strong and conflicting opinions around testing
-** Why?
-** Because TDD is kind of new
-** Invented in 2012
-** By Kent Beck
-* Plethora of terms
-- Unit Tests
-- Integration Tests
-- Full Stack Tests
-- System Tests
-- Acceptance Tests
-- Smoke Tests
-- Functional Tests
-- Contract Tests
-- Collaboration Tests
-
-* We're really vague about what those terms mean
-
-* I want to focus on just two of those terms
-- Unit test
-- Integration test
-
-* When people talk about testing they rarely define terms
-
-People rarely define terms
-
-* Learning TDD is hard - lots of people tell me that
-
-Learning TDD is hard
-
-* Aligns with my own experience
-- yep
-* I am confused about the vagueness of those terms
-- yep
-* Sometimes we are talking about different things
 * Integration Tests are a Scam - J.B. Rainsberger
 - Duplication
 - Test isolation
@@ -163,61 +121,6 @@ Learning TDD is hard
 
 * Sociable Unit Tests vs Integration Tests
 - the same?
-
-* What is a Unit Test?
-* Is this a Unit Test?
-  #+BEGIN_SRC ruby
-  it "quacks" do
-    duck = Duck.new(:name => "Stewart")
-    expect(duck.speak).to eq("Quack")
-  end
-  #+END_SRC
-
-* Is this a Unit Test?
-  #+BEGIN_SRC ruby
-  it "quacks" do
-    duck = Duck.new(:name => "Stewart")
-    bread = Bread.new
-    expect(duck.feed(bread)).to eq("Quack")
-  end
-  #+END_SRC
-
-* Is this a Unit Test?
-  #+BEGIN_SRC ruby
-  it "quacks" do
-    duck = FactoryGirl.create(:duck)
-    expect(duck.speak).to eq("Quack")
-  end
-  #+END_SRC
-
-* What is an Integration test?
-* Is this an Integration test?
-
-  #+BEGIN_SRC ruby
-    it "quacks" do
-      duck = Duck.new(:name => "Stewart")
-      expect(duck.speak).to eq("Quack")
-    end
-  #+END_SRC
-
-* Is this an Integration test?
-
-  #+BEGIN_SRC ruby
-  it "quacks" do
-    duck = Duck.new(:name => "Stewart")
-    bread = Bread.new
-    expect(duck.feed(bread)).to eq("Quack")
-  end
-  #+END_SRC
-
-* Is this an Integration test?
-
-#+BEGIN_SRC ruby
-  it "quacks" do
-    duck = FactoryGirl.create(:duck)
-    expect(duck.speak).to eq("Quack")
-  end
-#+END_SRC
 
 
 * Broadly defined/constrasted
