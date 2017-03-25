@@ -183,6 +183,27 @@
 [[./img/test-pyramid.png]]
 * TDD is Dead
 
+* Conclusion
+- Always define your terms when you're talking about Unit/Integration Testing
+- If you're a classicist/mockist or don't know, try another approach
+- You have to answer more difficult questions if you don't strongly identify with one or the other
+
+
+
+* References: Test-Driven Development- Kent Beck
+[[./img/tddbe.jpg]]
+* References: Working Effectively with Unit Tests - Jay Fields
+[[./img/wewut.jpeg]]
+* References: xUnit Test Patterns: Refactoring Test Code - Gerard Meszaros
+[[./img/xutp.jpg]]
+
+* References
+- http://martinfowler.com/bliki/UnitTest.html
+- http://martinfowler.com/articles/mocksArentStubs.html
+- http://blog.cleancoder.com/uncle-bob/2017/03/03/TDD-Harms-Architecture.html
+- Ian Cooper - TDD: Where did it all go wrong? - https://vimeo.com/68375232
+- J.B. Rainsberger - Integration Tests are a Scam - https://vimeo.com/80533536
+
 * Quotes
 ** "But the main lesson I took was that tests should be able to ignore
 one another completely. If I had one test broken, I wanted one
@@ -204,22 +225,7 @@ of a prerequisite test is gone." - Kent Beck (TDDBE) 125
 2. /Sociable Unit Tests/ are more susceptible to cascading failures" - Jay Fields (WEWUT) 232
 
 
-* References
-- http://martinfowler.com/bliki/UnitTest.html
-- http://martinfowler.com/articles/mocksArentStubs.html
-- English guy's talk
-- Kent Beck's book
-- Jay Fields book
-- xUnit Test patterns
-- http://martinfowler.com/bliki/TestPyramid.html
 
-
-cghuhrzdh9n6sfws
-
-* Conclusion
-- Always define your terms when you're talking about Unit/Integration Testing
-- If you're a classicist/mockist or don't know, try another approach
-- You have to answer more difficult questions if you don't strongly identify with one or the other
 
 * Themes
 ** Rochester
