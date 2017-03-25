@@ -11,6 +11,10 @@
 
 * What is a Unit Test?
 * It depends
+* Why?
+* Testing is new(ish)
+* All the Terms (we made more terms)
+* Two (or three terms)
 * Features and Attitudes
 * Feature: Programming Paradigm
 * Feature: Boundaries built into the language
