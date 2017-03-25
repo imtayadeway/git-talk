@@ -193,6 +193,7 @@
   ├── models
   └── test_helper.rb
   #+END_SRC
+* Biggest problem I have with codebases: not using the framework
 * Omakase
 * Doesn't quite fit either
 * They are all integration tests
@@ -202,22 +203,9 @@
 * Interaction with the database is permitted/encouraged in all the test frameworks?
 * Usually departing from the framework a bad idea
 * But I disagree when it comes to testing
+* It's really hard to do the test pyramid on Rails because they're all integration tests
 
-* Sociable Unit Tests vs Integration Tests
-- the same?
-
-
-* Broadly defined/constrasted
-|            | Unit Test                            | Integration Test              |
-|------------+--------------------------------------+-------------------------------|
-| Mockist    | One class, stub collaborators        | Many classes working together |
-| Classicist | Class or small collection of classes | Crosses boundaries            |
-
-
-* What is test isolation?
-- Isolation from other units?
-- Isolation from the world?
-
+* Quotes
 ** "But the main lesson I took was that tests should be able to ignore
 one another completely. If I had one test broken, I wanted one
 problem. If I had two tests broken, I wanted two problems.
@@ -226,45 +214,17 @@ problem. If I had two tests broken, I wanted two problems.
 order independent. If I want to grab a subset of tests and run them,
 then I can do so without worrying that a test will break now because
 of a prerequisite test is gone." - Kent Beck (TDDBE) 125
+** "[...] a unit can be an individual Java method, but it can also be
+ something much larger that likely includes many collaborating classes. I find value in splitting my unit tests into two distinct categories - /Solitary Unit Tests/ and /Sociable Unit Tests/." - Jay Fields (WEWUT) 84
 
 
 
-* quote
-"[...] a unit can be an individual Java method, but it can also be
-something much larger that likely includes many collaborating
-classes. I find value in splitting my unit tests into two distinct
-categories - /Solitary Unit Tests/ and /Sociable Unit Tests/." - Jay Fields (WEWUT) 84
-
-
-
-
-
-* Classicists - exploding complexity vs mockists - overspecified (hard to refactor)
-|                   | Classicist | Mockist    |
-|-------------------+------------+------------|
-| Development style | Middle-out | Outside-in |
-| Complexity        | Higher     | Lower      |
-| Refactoring       | Easier     | Harder     |
-| Coupling          | Lower      | Higher     |
-| Fragility         | Higher     | Lower      |
-|                   |            |            |
-
-* Where does the pyramid come from? What style are they?
-
-
-* It's really hard to do the test pyramid on Rails because they're all integration tests
-* Ruby on X
-* Biggest problem I have with codebases: not using the framework
-* So feel weird about recommending you deviate from the test framework
-* DHH - TDD is dead
-* Quotes
 
 ** "There are two primary reasons for writing  /Solitary Unit Tests/:
 
 "1. /Sociable Unit Tests/ can be slow and nondeterministic
 2. /Sociable Unit Tests/ are more susceptible to cascading failures" - Jay Fields (WEWUT) 232
 
-* You have to grow a test suite (i.e. don't just add new tests)
 
 * References
 - http://martinfowler.com/bliki/UnitTest.html
