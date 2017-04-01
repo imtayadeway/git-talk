@@ -117,11 +117,6 @@ of a prerequisite test is gone." - Kent Beck
   ├── models
   └── test_helper.rb
   #+END_SRC
-* They are all integration tests
-- Controller tests are integration tests in another folder
-- Model tests (the 'unit' tests) all interact with the database
-- Interaction with the database is permitted/encouraged in all the test frameworks?
-- Isolation unimportant/irrelevant
 * The Test Pyramid
 [[./img/test-pyramid.png]]
 * Service Objects
