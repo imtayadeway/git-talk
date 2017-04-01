@@ -164,6 +164,9 @@ of a prerequisite test is gone." - Kent Beck
 
 * Mockist vs. Classicist
 * X on Rails
+* Omakase
+- Usually departing from the framework a bad idea
+- But I disagree when it comes to testing
 * The Test Frameworks
 :PROPERTIES:
 :BEAMER_ENV: fullframe
@@ -185,10 +188,6 @@ of a prerequisite test is gone." - Kent Beck
 - Model tests (the 'unit' tests) all interact with the database
 - Interaction with the database is permitted/encouraged in all the test frameworks?
 - Isolation unimportant/irrelevant
-
-* Omakase
-- Usually departing from the framework a bad idea
-- But I disagree when it comes to testing
 * The Test Pyramid
 [[./img/test-pyramid.png]]
 * TDD is Dead
