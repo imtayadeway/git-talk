@@ -62,7 +62,9 @@
 - Functional
 
 * Feature: Boundaries built into the language
+- Scope
 - Objects
+- Methods
 - Public/Private
 
 * Attitude: What you think a unit is
@@ -134,10 +136,10 @@
 - Integration tests combine different classes working together
 
 * Attitude 1: Units are Classes
--  Leads to small, clean and well designed interfaces
--  Leads to tight coupling between the test and the implementation
--  Better test feedback
--  Harder to refactor
+- Better test feedback
+- Leads to small, clean and well designed interfaces
+- Leads to tight coupling between the test and the implementation
+- Harder to refactor
 
 * Attitude 2: Units can be Collections of Related Classes/Methods
 - Isolated from changing 'the world' (network, filesystem, etc.)
@@ -153,7 +155,7 @@
 
 * Classicist vs. Mockist
 
-* Ruby on X
+* X on Rails
 * The Test Frameworks
 :PROPERTIES:
 :BEAMER_ENV: fullframe
