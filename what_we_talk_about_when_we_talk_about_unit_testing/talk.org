@@ -129,25 +129,25 @@
   end
 #+END_SRC
 
-* Attitude 1: Units are Classes
+* Type A: Units are Classes
 - Isolated from other classes
 - Stub/Mock collaborators
 - Favors Outside-in development
 - Integration tests combine different classes working together
 
-* Attitude 1: Units are Classes
+* Type A: Units are Classes
 - Better test feedback
 - Leads to small, clean and well designed interfaces
 - Leads to tight coupling between the test and the implementation
 - Harder to refactor
 
-* Attitude 2: Units can be Collections of Related Classes/Methods
+* Type B: Units can be Collections of Related Classes/Methods
 - Isolated from changing 'the world' (network, filesystem, etc.)
 - Avoids the use of Mocks/Stubs
 - Favors Middle-out development
 - Integration tests cross the boundaries
 
-* Attitude 2: Units can be Collections of Related Classes/Methods
+* Type B: Units can be Collections of Related Classes/Methods
 - Less feedback on design of the smaller parts and their interactions
 - Leads to loosely coupled tests
 - Prone to cascading failures
