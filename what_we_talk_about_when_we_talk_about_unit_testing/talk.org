@@ -134,9 +134,6 @@ of a prerequisite test is gone." - Kent Beck
 * Conclusion
 - Always define your terms when you're talking about Unit/Integration Testing
 - If you're a classicist/mockist or don't know, try another approach
-* About
-- imtayadeway
-- github.com/imtayadeway/talks
 * References: Test-Driven Development- Kent Beck
 ** image
    :PROPERTIES:
@@ -161,3 +158,6 @@ of a prerequisite test is gone." - Kent Beck
 - http://blog.cleancoder.com/uncle-bob/2017/03/03/TDD-Harms-Architecture.html
 - Ian Cooper - TDD: Where did it all go wrong? - https://vimeo.com/68375232
 - J.B. Rainsberger - Integration Tests are a Scam - https://vimeo.com/80533536
+* About
+- imtayadeway
+- github.com/imtayadeway/talks
