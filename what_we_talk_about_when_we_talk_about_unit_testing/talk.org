@@ -99,7 +99,7 @@ of a prerequisite test is gone." - Kent Beck
 * Mockist vs. Classicist
 * X on Rails
 * Omakase
-- Usually departing from the framework a bad idea
+- Usually departing from the framework is a bad idea
 - But I disagree when it comes to testing
 * The Test Frameworks
 :PROPERTIES:
