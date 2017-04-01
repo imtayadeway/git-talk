@@ -138,12 +138,23 @@ of a prerequisite test is gone." - Kent Beck
 - imtayadeway
 - github.com/imtayadeway/talks
 * References: Test-Driven Development- Kent Beck
-[[./img/tddbe.jpg]]
+** image
+   :PROPERTIES:
+   :BEAMER_col: 0.6
+   :END:
+   [[./img/tddbe.jpg]]
 * References: Working Effectively with Unit Tests - Jay Fields
-[[./img/wewut.jpeg]]
+** image
+   :PROPERTIES:
+   :BEAMER_col: 0.6
+   :END:
+   [[./img/wewut.jpeg]]
 * References: xUnit Test Patterns: Refactoring Test Code - Gerard Meszaros
-[[./img/xutp.jpg]]
-
+** image
+   :PROPERTIES:
+   :BEAMER_col: 0.6
+   :END:
+   [[./img/xutp.jpg]]
 * References
 - http://martinfowler.com/bliki/UnitTest.html
 - http://martinfowler.com/articles/mocksArentStubs.html
