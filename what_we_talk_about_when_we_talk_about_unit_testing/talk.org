@@ -68,33 +68,33 @@
 - Stub/Mock collaborators
 - Favors Outside-in development
 - Integration tests combine different classes working together
-
-* Quote
-"But the main lesson I took was that tests should be able to ignore
-one another completely. If I had one test broken, I wanted one
-problem. If I had two tests broken, I wanted two problems." - Kent Beck
 * Type A: Units are Classes
 - Better test feedback
 - Leads to small, clean and well designed interfaces
 - Leads to tight coupling between the test and the implementation
 - Harder to refactor
 
+* Quote
+"But the main lesson I took was that tests should be able to ignore
+one another completely. If I had one test broken, I wanted one
+problem. If I had two tests broken, I wanted two problems." - Kent Beck
+
 * Type B: Units can be Collections of Related Classes/Methods
 - Isolated from changing 'the world' (network, filesystem, etc.)
 - Avoids the use of Mocks/Stubs
 - Favors Middle-out development
 - Integration tests cross the boundaries
+* Type B: Units can be Collections of Related Classes/Methods
+- Leads to loosely coupled tests
+- Easier to refactor
+- Less feedback on design of the smaller parts and their interactions
+- Prone to cascading failures
 
 * Quote
 "One convenient implication of isolated tests is that the tests are
 order independent. If I want to grab a subset of tests and run them,
 then I can do so without worrying that a test will break now because
 of a prerequisite test is gone." - Kent Beck
-* Type B: Units can be Collections of Related Classes/Methods
-- Leads to loosely coupled tests
-- Easier to refactor
-- Less feedback on design of the smaller parts and their interactions
-- Prone to cascading failures
 
 * Mockist vs. Classicist
 * X on Rails
