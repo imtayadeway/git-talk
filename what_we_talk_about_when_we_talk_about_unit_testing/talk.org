@@ -137,19 +137,19 @@ of a prerequisite test is gone." - Kent Beck
 * References: Test-Driven Development- Kent Beck
 ** image
    :PROPERTIES:
-   :BEAMER_col: 0.6
+   :BEAMER_col: 0.5
    :END:
    [[./img/tddbe.jpg]]
 * References: Working Effectively with Unit Tests - Jay Fields
 ** image
    :PROPERTIES:
-   :BEAMER_col: 0.6
+   :BEAMER_col: 0.5
    :END:
    [[./img/wewut.jpeg]]
 * References: xUnit Test Patterns: Refactoring Test Code - Gerard Meszaros
 ** image
    :PROPERTIES:
-   :BEAMER_col: 0.6
+   :BEAMER_col: 0.5
    :END:
    [[./img/xutp.jpg]]
 * References
