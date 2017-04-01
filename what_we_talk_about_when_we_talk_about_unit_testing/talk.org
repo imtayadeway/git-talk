@@ -162,8 +162,7 @@ of a prerequisite test is gone." - Kent Beck
 - Prone to cascading failures
 - Easier to refactor
 
-* Classicist vs. Mockist
-
+* Mockist vs. Classicist
 * X on Rails
 * The Test Frameworks
 :PROPERTIES:
