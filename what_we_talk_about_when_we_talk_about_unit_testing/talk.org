@@ -124,13 +124,13 @@ of a prerequisite test is gone." - Kent Beck
 - Isolation unimportant/irrelevant
 * The Test Pyramid
 [[./img/test-pyramid.png]]
+* Service Objects
+- Business logic is independent from Rails
+- Models become simple data objects
 * Alternatives
 - Hexagonal Rails
 - Uncle Bob: Architecture: The Lost Years
 - Trailblazer
-- Service Objects
-* TDD is Dead
-
 * Conclusion
 - Always define your terms when you're talking about Unit/Integration Testing
 - If you're a classicist/mockist or don't know, try another approach
