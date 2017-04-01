@@ -56,23 +56,13 @@
 - (Test isolation)
 
 * Features and Attitudes
-* Feature: Programming Paradigm
-- Object Oriented
-- Procedural
-- Functional
-
-* Feature: Boundaries built into the language
+* Features
+- Programming Paradigm (OO, Procedural, Functional, etc.)
 - Scope
-- Objects
-- Methods
-- Public/Private
-
-* Attitude: What you think a unit is
-
-* Attitude: What you think isolation is
-- Isolation from other objects
-- Isolation from boundaries you don't control
-
+- Visibility
+* Attitudes
+- What you think a unit is
+- What you think isolation is
 * Illustration
 #+BEGIN_SRC ruby
   class Duck
