@@ -180,6 +180,11 @@ of a prerequisite test is gone." - Kent Beck
 - Isolation unimportant/irrelevant
 * The Test Pyramid
 [[./img/test-pyramid.png]]
+* Alternatives
+- Hexagonal Rails
+- Uncle Bob: Architecture: The Lost Years
+- Trailblazer
+- Service Objects
 * TDD is Dead
 
 * Conclusion
