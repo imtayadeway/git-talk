@@ -135,6 +135,10 @@
 - Favors Outside-in development
 - Integration tests combine different classes working together
 
+* Quote
+"But the main lesson I took was that tests should be able to ignore
+one another completely. If I had one test broken, I wanted one
+problem. If I had two tests broken, I wanted two problems." - Kent Beck
 * Type A: Units are Classes
 - Better test feedback
 - Leads to small, clean and well designed interfaces
@@ -147,6 +151,11 @@
 - Favors Middle-out development
 - Integration tests cross the boundaries
 
+* Quote
+"One convenient implication of isolated tests is that the tests are
+order independent. If I want to grab a subset of tests and run them,
+then I can do so without worrying that a test will break now because
+of a prerequisite test is gone." - Kent Beck
 * Type B: Units can be Collections of Related Classes/Methods
 - Less feedback on design of the smaller parts and their interactions
 - Leads to loosely coupled tests
@@ -207,14 +216,7 @@
 - J.B. Rainsberger - Integration Tests are a Scam - https://vimeo.com/80533536
 
 * Quotes
-** "But the main lesson I took was that tests should be able to ignore
-one another completely. If I had one test broken, I wanted one
-problem. If I had two tests broken, I wanted two problems.
 
-** "One convenient implication of isolated tests is that the tests are
-order independent. If I want to grab a subset of tests and run them,
-then I can do so without worrying that a test will break now because
-of a prerequisite test is gone." - Kent Beck (TDDBE) 125
 ** "[...] a unit can be an individual Java method, but it can also be
  something much larger that likely includes many collaborating classes. I find value in splitting my unit tests into two distinct categories - /Solitary Unit Tests/ and /Sociable Unit Tests/." - Jay Fields (WEWUT) 84
 
