@@ -157,10 +157,10 @@ order independent. If I want to grab a subset of tests and run them,
 then I can do so without worrying that a test will break now because
 of a prerequisite test is gone." - Kent Beck
 * Type B: Units can be Collections of Related Classes/Methods
-- Less feedback on design of the smaller parts and their interactions
 - Leads to loosely coupled tests
-- Prone to cascading failures
 - Easier to refactor
+- Less feedback on design of the smaller parts and their interactions
+- Prone to cascading failures
 
 * Mockist vs. Classicist
 * X on Rails
