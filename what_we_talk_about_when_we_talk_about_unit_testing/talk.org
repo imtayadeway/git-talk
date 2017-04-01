@@ -195,7 +195,9 @@ of a prerequisite test is gone." - Kent Beck
 * Conclusion
 - Always define your terms when you're talking about Unit/Integration Testing
 - If you're a classicist/mockist or don't know, try another approach
-
+* About
+- imtayadeway
+- github.com/imtayadeway/talks
 * References: Test-Driven Development- Kent Beck
 [[./img/tddbe.jpg]]
 * References: Working Effectively with Unit Tests - Jay Fields
