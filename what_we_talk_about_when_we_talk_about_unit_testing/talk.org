@@ -73,7 +73,7 @@ problem. If I had two tests broken, I wanted two problems." - Kent Beck
 
 * Type B: Units can be Collections of Related Classes/Methods
 - Isolated from changing 'the world' (network, filesystem, etc.)
-- Avoids the use of Stubs
+- Avoids the use of Mocks
 - Favors Middle-out development
 - Integration tests cross the boundaries
 * Type B: Units can be Collections of Related Classes/Methods
