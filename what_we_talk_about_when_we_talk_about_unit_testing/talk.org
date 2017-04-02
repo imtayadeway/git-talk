@@ -55,14 +55,6 @@
 - Integration Tests
 - (Test isolation)
 
-* Features and Attitudes
-* Features
-- Programming Paradigm (OO, Procedural, Functional, etc.)
-- Scope
-- Visibility
-* Attitudes
-- What you think a unit is
-- What you think isolation is
 * Type A: Units are Classes
 - Isolated from other classes
 - Stub/Mock collaborators
