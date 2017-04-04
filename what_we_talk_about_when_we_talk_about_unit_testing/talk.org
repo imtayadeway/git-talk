@@ -87,7 +87,7 @@ of a prerequisite test is gone." - Kent Beck
 - Easier to refactor
 - Less feedback on design of the smaller parts and their interactions
 - Prone to cascading failures
-
+- Exploding complexity
 * Mockist vs. Classicist
 * X on Rails
 * Omakase
