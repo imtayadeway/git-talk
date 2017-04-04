@@ -118,9 +118,6 @@ of a prerequisite test is gone." - Kent Beck
 - Hexagonal Rails
 - Uncle Bob: Architecture: The Lost Years
 - Trailblazer
-* Conclusion
-- Always define your terms when you're talking about Unit/Integration Testing
-- If you're a classicist/mockist or don't know, try another approach
 * References: Test-Driven Development- Kent Beck
 ** image
    :PROPERTIES:
